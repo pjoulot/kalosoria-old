@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Options</title>
+  </head>
+  <body>
+
+    <a href="index.html">Return</a>
+
+    <h1>Options</h1>
+
+    <div>
+      <h2>Link settings</h2>
+      <a href="#" data-settings="setting_link" data-settings_value="1">ON</a> <a href="#" data-settings="setting_link" data-settings_value="0">OFF</a>
+      <h2>Checkbox settings</h2>
+      <input type="checkbox" id="setting_checkbox" data-settings="setting_checkbox" name="setting_checkbox" value="1">
+      <h2>Select settings</h2>
+      <select name="setting_select" id="setting_select" data-settings="setting_select">
+        <option value="1">Value 1</option>
+        <option value="2">Value 2</option>
+        <option value="3">Value 3</option>
+        <option value="4">Value 4</option>
+      </select>
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

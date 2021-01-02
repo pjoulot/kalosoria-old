@@ -6,7 +6,13 @@ window.addEventListener('DOMContentLoaded', () => {
     if (element) element.innerText = text
   }
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
+  document.querySelectorAll('.js-quit').forEach(el => el.addEventListener("click", e => {
+    window.close();
+  }));
+
+
+  // Attach options.
+  const ksSettings = require('./ks_settings')
+  ksSettings.attach()
+
 })
