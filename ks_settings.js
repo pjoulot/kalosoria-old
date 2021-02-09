@@ -2,9 +2,15 @@ const getSettingsFilename = () => {
   return 'settings.json';
 };
 
+const getDefaultSettingsFilename = () => {
+  return 'default.settings.json';
+};
+
 const getLinkActiveClass = () => {
   return 'active';
 };
+
+const fs = require('fs')
 
 var attach = function () {
   // Support for settings links.
@@ -99,4 +105,14 @@ var changeSetting = function (element) {
   setSetting(name, value);
 }
 
+var setDefaultSettings = function () {
+  if (!fs.existsSync(process.cwd() + '/' + getSettingsFilename()) && fs.existsSync(process.cwd() + '/' + getDefaultSettingsFilename())) {
+    const default_store = require('data-store')({ path: process.cwd() + '/' + getDefaultSettingsFilename() })
+    const store = require('data-store')({ path: process.cwd() + '/' + getSettingsFilename() })
+    store.data = default_store.data;
+    store.save();
+  }
+}
+
 exports.attach = attach;
+exports.setDefaultSettings = setDefaultSettings;

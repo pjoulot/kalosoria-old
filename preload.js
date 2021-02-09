@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Attach options.
   const ksSettings = require('./ks_settings')
+  ksSettings.setDefaultSettings()
   ksSettings.attach()
 
 })
